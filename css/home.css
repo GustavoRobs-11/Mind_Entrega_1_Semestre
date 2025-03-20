@@ -8,15 +8,20 @@
     background-position: center;
     background-attachment: fixed;
 }
+.row{
+    justify-content: center;
+}
 
+.seta-filtro{
+    filter: invert(1);
+}
 .hm-btn-buscar {
     position: absolute;
     font-family: 'chillax';
     font-size: medium;
     font-weight: bold;
-    padding: 0.5em 4em;
+    padding: 0.5em 1em;
     margin: 0.25em;
-    
     border-radius: 0.4em;
     justify-self: center;
     border: none;
@@ -26,7 +31,8 @@
     background-color: #1C5841;
     transition: background-color 0.1s;
     cursor: pointer;
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .hm-btn-buscar:hover {
@@ -34,6 +40,102 @@
     transition: background-color 0.25s;
 }
 
+.checkbox{
+    position: absolute;
+    width: 100%;
+    background: #1C5841;
+    display: flex;
+    flex-direction: column;
+    top: 78%;
+    margin: 0.25em;
+    gap: 10px;
+    display: none;
+    
+}
+#filtro-checkbox {
+    transform: scaleY(0); /* Inicialmente recolhido */
+    transform-origin: top; /* Ponto de origem no topo */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transição suave */
+    opacity: 0;
+    display: block; /* Mantém o elemento na estrutura da página */
+    cursor: pointer;
+}
+
+/* Quando o filtro está visível */
+#filtro-checkbox.show {
+    transform: scaleY(1); /* Expande verticalmente */
+    opacity: 1;
+    
+}
+
+/* Transição para a seta */
+#seta-checkbox {
+    transition: transform 0.3s ease; /* Transição suave */
+}
+.checkbox-input input{
+    display: none;
+    cursor: pointer;
+}
+.checkbox-input input + label:before{
+    content: '';
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    margin: 0;
+    right: 3%;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 2px solid #58ffc2;
+}
+.checkbox-input input:checked + label:before{
+    background-color: #58ffc2;
+}
+.checkbox-input{
+    background: #1C5841;
+    cursor: pointer;
+}
+.titulo-checkbox{
+    font-size: 80%;
+    padding: 0.5rem;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'chillax';
+    width: 100%;
+    cursor: pointer;
+
+}
+.grid-psi{
+    display: flex;
+    margin-top: 3%;
+    padding-bottom: 25px; 
+    height: fit-content;
+    flex-wrap: wrap;
+
+}
+.container-psi{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.card-psi{
+    display: block;
+    align-self: center;
+    border-radius: 2em;
+    margin: 2%;
+    width: 30rem;
+    height: 100%;
+    background-color: #F5E0A5;
+    box-shadow: 0px 2px 8px #a8795a;
+}
+.psi-card-container{
+    height: 450px; 
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
 
 .fix_buscar {
     position: absolute;
@@ -119,7 +221,6 @@ input:valid + .hm-input-label{
     transition: background-color 0.5s;
     flex-grow: 1;
     cursor: pointer;
-
     transform: translate(0px, 0px) scale(1.0);
     transition: transform 0.1s;
     box-shadow: 0px 1px 2px #144416;
@@ -130,40 +231,8 @@ input:valid + .hm-input-label{
     box-shadow: 0px 2px 4px #3b443e;
     transform: translate(1px, -1px) scale(1.02);
     transition: transform 0.1s;
-    transition: box-shadow 0.1s
-    
+    transition: box-shadow 0.1s;
 }
-
-
-.grid-psi{
-    display: flex;
-    margin-top: 3%;
-    padding-bottom: 25px; 
-    justify-content: center;
-    height: fit-content;
-
-}
-
-.psi-card-container{
-    height: 450px;
-    width: 400px;
-    padding: 20px;
-    
-
-
-}
-
-.card-psi{
-    display: flex;
-    align-self: center;
-    border-radius: 2em;
-    margin: 2%;
-    width: 100%;
-    height: 100%;
-    background-color: #F5E0A5;
-    box-shadow: 0px 2px 8px #a8795a;
-}
-
 .card-psi-div-3{
     display: grid;
     height: 100%;
@@ -211,7 +280,7 @@ input:valid + .hm-input-label{
 .psi-info{
     padding-left: 1em; 
     display: flex; 
-    flex-direction: row; 
+    flex-direction: column; 
     flex-wrap: wrap; 
     align-content: center;
 
