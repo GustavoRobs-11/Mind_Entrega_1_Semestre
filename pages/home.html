@@ -11,6 +11,7 @@
     
     <script type="text/javascript" src="/scripts/login_app.js" defer></script>
     <script src="/scripts/filtro.js"></script>
+    
 
     <script>
         usuario = JSON.parse(sessionStorage.getItem('user'))
@@ -72,7 +73,7 @@
                     <div class="col col-sm-1"></div>
                     <div class="col col-sm-7">
                         <div class="fix_buscar">
-                            <input type="text" required>
+                            <input type="text" required id="pesquisa">
                             <div class="hm-input-label">Pesquisar</div>
                         </div>
                     </div>
@@ -418,5 +419,6 @@
         }
 
     </script>
+    <script src="/scripts/pesquisa.js"></script>
 </body>
 </html>
