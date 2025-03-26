@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/scripts/login_app.js" defer></script>
     <script src="/scripts/filtro.js"></script>
     
+    
 
     <script>
         usuario = JSON.parse(sessionStorage.getItem('user'))
@@ -73,13 +74,13 @@
                     <div class="col col-sm-1"></div>
                     <div class="col col-sm-7">
                         <div class="fix_buscar">
-                            <input type="text" required id="pesquisa">
-                            <div class="hm-input-label">Pesquisar</div>
+                            <input type="text" id="searchInput" placeholder="Pesquisar...">
                         </div>
                     </div>
                     <div class="col col-sm-1">
                         <button type="button"  class="nav-btn"
-                        style="background-image: url('/img/magnifying-glass-solid.png');">
+                        style="background-image: url('/img/magnifying-glass-solid.png');"
+                        >
                     </button>  
                     </div>
                     <div class="col col-sm-2">
@@ -420,5 +421,6 @@
 
     </script>
     <script src="/scripts/pesquisa.js"></script>
+    
 </body>
 </html>
