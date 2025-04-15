@@ -16,6 +16,6 @@ function searchCards() {
                 card.style.display = 'none';
             }
         });
-    }, 300); // Espera 300ms após o último input antes de realizar a pesquisa
+    }, 60); // Espera 300ms após o último input antes de realizar a pesquisa
 }
 //ola

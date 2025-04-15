@@ -2,14 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll('.checkbox input');
     const cards = document.querySelectorAll('.card-psi');
     const noResultsCard = document.getElementById('no-results-card'); // Card "Nenhum Resultado"
-
     function filtrarCards() {
         const especialidadesSelecionadas = Array.from(checkboxes)
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.getAttribute('data-speciality').toLowerCase());
-
         let algumCardVisivel = false;
-
         // Se nenhum filtro for selecionado, mostra todos os cards
         if (especialidadesSelecionadas.length === 0) {
             cards.forEach(card => {
@@ -25,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const deveAparecer = especialidadesSelecionadas.some(especialidade =>
                     especialidadesCard.includes(especialidade)
                 );
-
                 if (deveAparecer) {
                     card.style.display = "block"; // Exibe o card se ele corresponder ao filtro
                     algumCardVisivel = true; // Marca que pelo menos um card está visível
@@ -35,20 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
-
     // Adiciona evento de mudança nos checkboxes
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filtrarCards);
     });
-
     // Inicializa a filtragem ao carregar a página
     filtrarCards();
 });
-
 function AbrirFiltro() {
     const filtro = document.getElementById('filtro-checkbox');
     const seta = document.getElementById('seta-checkbox');
-
     filtro.classList.toggle('show'); // Adiciona ou remove a classe para ativar a transição
     seta.style.transform = filtro.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
 }
