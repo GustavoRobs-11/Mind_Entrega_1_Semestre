@@ -18,3 +18,4 @@ function searchCards() {
         });
     }, 300); // Espera 300ms após o último input antes de realizar a pesquisa
 }
+//ola
